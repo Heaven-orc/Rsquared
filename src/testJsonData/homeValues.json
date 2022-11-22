@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "img": "/assets/images/home/Values/1.png",
+    "icon": "/assets/images/home/Values/icon_1.svg",
+    "title": "Our Mission",
+    "description": "Rsquared is dedicated to developing start-ups to become highly competent and socially responsible companies while realizing investments with partners "
+   },
+  {
+    "id": 2,
+    "img": "/assets/images/home/Values/2.png",
+    "icon": "/assets/images/home/Values/icon_2.svg",
+    "title": "Our Vison",
+    "description": "Rsquared is dedicated to developing start-ups to become highly competent and socially responsible companies while realizing investments with partners "
+   }
+]

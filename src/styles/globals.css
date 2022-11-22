@@ -1,0 +1,109 @@
+/*
+ Public Sans 300
+*/
+@font-face {
+  font-family: "Public Sans Light";
+  src: local("PublicSans-Light"),
+    url("../../public/assets/fonts/PublicSans-Light.ttf") format("truetype");
+}
+
+/*
+ Public Sans 400
+*/
+@font-face {
+  font-family: "Public Sans Regular";
+  src: local("PublicSans-Regular"),
+    url("../../public/assets/fonts/PublicSans-Regular.ttf") format("truetype");
+}
+
+/*
+ Public Sans 500
+*/
+@font-face {
+  font-family: "Public Sans Medium";
+  src: local("PublicSans-Medium"),
+    url("../../public/assets/fonts/PublicSans-Medium.ttf") format("truetype");
+}
+
+/*
+ Public Sans 600
+*/
+@font-face {
+  font-family: "Public Sans SemiBold";
+  src: local("PublicSans-SemiBold"),
+    url("../../public/assets/fonts/PublicSans-SemiBold.ttf") format("truetype");
+}
+
+/*
+ Public Sans 700
+*/
+@font-face {
+  font-family: "Public Sans Bold";
+  src: local("PublicSans-Bold"),
+    url("../../public/assets/fonts/PublicSans-Bold.ttf") format("truetype");
+}
+
+/*
+ Public Sans 900
+*/
+@font-face {
+  font-family: "Public Sans Black";
+  src: local("PublicSans-Black"),
+    url("../../public/assets/fonts/PublicSans-Black.ttf") format("truetype");
+}
+
+/*
+Ante Cf 900
+*/
+@font-face {
+  font-family: "Ante Cf Black";
+  src: local("AnteCf-Black"),
+    url("../../public/assets/fonts/AnteCf-Black.ttf") format("truetype");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f8f9fd;
+  font-family: "Public Sans Regular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body.mobile-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

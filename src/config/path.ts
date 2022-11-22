@@ -1,0 +1,1 @@
+export const PATH_NEWS_PAGE                         = "/news"

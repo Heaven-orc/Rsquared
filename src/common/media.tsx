@@ -1,0 +1,15 @@
+export const deviceMedia = {
+    media1440: `@media only screen and (max-width: 1440px)`,
+    media1280: `@media only screen and (max-width: 1280px)`, 
+    media1024: `@media only screen and (max-width: 1024px)`, 
+    media998: `@media only screen and (max-width: 998px)`,
+    media768: `@media only screen and (max-width: 768px)`,
+    minMedia768: `@media only screen and (min-width: 768px)`, 
+    minMedia998: `@media only screen and (min-width: 999px)`,
+    media640: `@media only screen and (max-width: 640px)`,
+    media500: `@media only screen and (max-width: 500px)`, 
+    media428: `@media only screen and (max-width: 428px)`, 
+    media415: `@media only screen and (max-width: 415px)`,
+    media375: `@media only screen and (max-width: 375px)`,
+    media330: `@media only screen and (max-width: 330px)`,
+}
