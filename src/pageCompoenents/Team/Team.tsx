@@ -13,7 +13,6 @@ interface teamType {
 
 const Team = () => {
     const { t } = useTranslation('r2Team');
-    console.log(t('team.member3.name'))
 
     const teamListData: teamType[] = [
         { name: t('team.member1.name'), position: t('team.member1.position'), photo: AssetsImage.teamM1 },
