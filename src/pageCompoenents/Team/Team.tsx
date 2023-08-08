@@ -24,6 +24,7 @@ const Team = () => {
     ]
 
     let aosDelayInc = 100;
+
     return (
         <Section>
             <PageContainer>
