@@ -10,6 +10,8 @@ import teamM3 from "@/assets/images/team/t3.png";
 import teamM4 from "@/assets/images/team/t4.png";
 import teamM5 from "@/assets/images/team/t5.png";
 import teamM6 from "@/assets/images/team/t6.png";
+import teamM7 from "@/assets/images/team/t7.png";
+import teamM8 from "@/assets/images/team/t8.png";
 import spiral from "@/assets/images/home/Values/spiral.svg";
 
 const AssetsImage = {
@@ -25,6 +27,8 @@ const AssetsImage = {
     teamM4: teamM4.src,
     teamM5: teamM5.src,
     teamM6: teamM6.src,
+    teamM7: teamM7.src,
+    teamM8: teamM8.src,
     spiral: spiral.src,
 }
 

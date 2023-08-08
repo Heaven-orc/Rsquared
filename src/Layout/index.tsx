@@ -18,8 +18,6 @@ const Layout: React.FC<options> = ({ children }) => {
     )
 }
 
-export const runtime = 'edge';
-
 export default Layout;
 
 const PageWrap = styled.main`
