@@ -10,6 +10,7 @@ import { IReadMoreArticles } from "./types";
 
 
 const GeneralArticles: React.FC<IReadMoreArticles> = ({ data }) => {
+    console.log(data)
 
     return (
         <>

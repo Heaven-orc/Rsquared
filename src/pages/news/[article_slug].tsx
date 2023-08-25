@@ -18,8 +18,9 @@ import articles from "../../testJsonData/newsArticles.json";
 import { LazyImageWrapper } from 'components/image/LazyImageWrapper';
 
 export default function SingleNewsArticle({ article, readMore }: ISingleNewsArticle) {
-
     const router = useRouter()
+    const articleID = article.findIndex(item => item.slug === router?.query?.article_slug)
+
     const { t } = useTranslation("r2News");
 
     const socialData: ISocial[] = [
@@ -47,9 +48,9 @@ export default function SingleNewsArticle({ article, readMore }: ISingleNewsArti
     return (
         <>
             <Head>
-                <title>{article.title}</title>
+                <title>{article[articleID].title}</title>
                 {/* <meta name="keywords" content={``} /> */}
-                <meta name="description" content={article.description} />
+                <meta name="description" content={article[articleID].description} />
             </Head>
 
             <Section>
@@ -69,18 +70,18 @@ export default function SingleNewsArticle({ article, readMore }: ISingleNewsArti
                             <ArticleImgTitle>
                                 <ImageWrapper>
                                     <ArticleImg
-                                        src={article.img}
-                                        alt={`News picture ${article.title}`}
+                                        src={article[articleID].img}
+                                        alt={`News picture ${article[articleID].title}`}
                                     />
                                 </ImageWrapper>
                                 <TitleWrapper>
-                                    <Title dangerouslySetInnerHTML={{ __html: article.title }} />
-                                    <Date>{article.date}</Date>
+                                    <Title dangerouslySetInnerHTML={{ __html: article[articleID].title }} />
+                                    <Date>{article[articleID].date}</Date>
                                 </TitleWrapper>
                             </ArticleImgTitle>
                             <Main>
                                 <Content>
-                                    <Description dangerouslySetInnerHTML={{ __html: article.description }} />
+                                    <Description dangerouslySetInnerHTML={{ __html: article[articleID].description }} />
                                 </Content>
                             </Main>
                         </Article>
@@ -97,7 +98,7 @@ export default function SingleNewsArticle({ article, readMore }: ISingleNewsArti
                                     {
                                         socialData.map((item, index) => (
                                             <SocialItem key={index}>
-                                                <ShareSocialButton onClick={() => handleClickShare(article.title, String(window.location))} type="button">
+                                                <ShareSocialButton onClick={() => handleClickShare(article[articleID].title, String(window.location))} type="button">
                                                     <LazyImageWrapper>
                                                         <img width="20" height="20" src={item.icon} alt={item.label} />
                                                     </LazyImageWrapper>
@@ -118,10 +119,9 @@ export default function SingleNewsArticle({ article, readMore }: ISingleNewsArti
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ locale = '' }) => {
-
     return {
         props: {
-            article: articles[0],
+            article: articles,
             readMore: articles,
             ...(await serverSideTranslations(locale, ['common', 'r2News']))
         }
@@ -224,6 +224,16 @@ const Description = styled.div`
         &:last-child {
             margin-bottom: none;
         }
+    }
+    span {
+      font-weight: 600;
+    }
+    label {
+        display: block;
+        text-align: center;
+    }
+    a {
+    text-decoration: revert;
     }
 `
 const Content = styled.div`
