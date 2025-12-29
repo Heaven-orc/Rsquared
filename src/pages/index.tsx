@@ -1,5 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { GetServerSideProps } from 'next';
+import type { GetStaticProps } from 'next';
+import React from 'react';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import Hero from "pageCompoenents/Home/Hero";
@@ -8,8 +9,8 @@ import CanHelp from "pageCompoenents/Home/CanHelp";
 import Portfolio from "pageCompoenents/Home/Portfolio";
 import Philosophy from "pageCompoenents/Home/Philosophy";
 import Values from 'pageCompoenents/Home/Values';
-import { getDeviceType } from 'utils';
 import { IR2Home } from 'pageCompoenents/Home/types';
+import { getDeviceType } from 'utils';
 
 // FOR DEV
 import values from "../testJsonData/homeValues.json";
@@ -17,6 +18,14 @@ import values from "../testJsonData/homeValues.json";
 
 const R2Home = ({ deviceType, values }: IR2Home) => {
     const { t } = useTranslation("common");
+    const [resolvedDeviceType, setResolvedDeviceType] = React.useState(deviceType);
+
+    React.useEffect(() => {
+        if (typeof window === "undefined") {
+            return;
+        }
+        setResolvedDeviceType(getDeviceType(window.navigator.userAgent));
+    }, []);
 
     return (
         <>
@@ -27,7 +36,7 @@ const R2Home = ({ deviceType, values }: IR2Home) => {
             </Head>
 
             <Hero />
-            <Values deviceType={deviceType} values={values} />
+            <Values deviceType={resolvedDeviceType} values={values} />
             <Journey />
             <CanHelp />
             <Portfolio />
@@ -36,12 +45,10 @@ const R2Home = ({ deviceType, values }: IR2Home) => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, locale = '' }) => {
-    const deviceType = getDeviceType(req.headers['user-agent'] ?? "")
-
+export const getStaticProps: GetStaticProps = async ({ locale = '' }) => {
     return {
         props: {
-            deviceType: deviceType,
+            deviceType: "desktop",
             values: values,
             ...(await serverSideTranslations(locale, ['common', 'r2Home']))
         }

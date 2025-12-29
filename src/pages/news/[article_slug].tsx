@@ -1,5 +1,5 @@
 import { deviceMedia } from 'common/media';
-import { GetServerSideProps, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
@@ -118,7 +118,7 @@ export default function SingleNewsArticle({ article, readMore }: ISingleNewsArti
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale = '' }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = '' }) => {
     return {
         props: {
             article: articles,
@@ -127,6 +127,22 @@ export const getServerSideProps: GetServerSideProps = async ({ locale = '' }) =>
         }
     }
 }
+
+export const getStaticPaths: GetStaticPaths = async ({ locales = [] }) => {
+    const basePaths = articles.map((item) => ({
+        params: { article_slug: item.slug }
+    }));
+    const paths = locales.length
+        ? locales.flatMap((locale) =>
+              basePaths.map((path) => ({ ...path, locale }))
+          )
+        : basePaths;
+
+    return {
+        paths,
+        fallback: false
+    };
+};
 
 
 const Section = styled.section`

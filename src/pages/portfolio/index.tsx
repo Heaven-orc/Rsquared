@@ -1,5 +1,5 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import type { GetServerSideProps } from 'next';
+import type { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import Hero from "pageCompoenents/Portfolio/Hero";
 import Head from "next/head";
@@ -24,8 +24,7 @@ const R2Portfolio = () => {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, locale = '' }) => {
-
+export const getStaticProps: GetStaticProps = async ({ locale = '' }) => {
     return {
         props: {
             ...(await serverSideTranslations(locale, ['common', 'r2Portfolio']))

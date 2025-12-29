@@ -4,7 +4,6 @@ import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
 import { theme } from '../styles/theme';
 import { ThemeProvider } from 'styled-components';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../Layout';
 import React from 'react';
 
@@ -37,11 +36,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   )
 }
-
-export const getStaticProps = async ({ locale = '' }) => ({
-  props: {
-    ...(await serverSideTranslations(locale))
-  }
-});
 
 export default appWithTranslation(MyApp);
