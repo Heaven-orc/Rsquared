@@ -1,11 +1,9 @@
 import React from "react"
 import styled from "styled-components";
 
-interface ILazyImageWrapper extends React.HTMLAttributes<HTMLElement> {
-    children: React.ReactNode
-}
+type LazyImageWrapperProps = React.ComponentPropsWithoutRef<"div">
 
-export const LazyImageWrapper: React.FC<ILazyImageWrapper> = ({ children, ...arg }) => {
+export const LazyImageWrapper: React.FC<LazyImageWrapperProps> = ({ children, ...arg }) => {
 
     const imageWrapperRef = React.useRef<HTMLDivElement>(null)
     const [inViewport, setInViewport] = React.useState(false)
@@ -62,7 +60,7 @@ export const LazyImageWrapper: React.FC<ILazyImageWrapper> = ({ children, ...arg
         </Wrapper>
     )
 }
-const Wrapper = styled.div`
+const Wrapper = styled.div<React.ComponentPropsWithRef<"div">>`
     display: flex;
     align-items: center;
 `;
