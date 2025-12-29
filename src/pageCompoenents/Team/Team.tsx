@@ -18,9 +18,9 @@ const Team = () => {
         { name: t('team.member1.name'), position: t('team.member1.position'), photo: AssetsImage.teamM1 },
         { name: t('team.member3.name'), position: t('team.member3.position'), photo: AssetsImage.teamM7 },
         { name: t('team.member6.name'), position: t('team.member6.position'), photo: AssetsImage.teamM8 },
-        { name: t('team.member4.name'), position: t('team.member4.position'), photo: AssetsImage.teamM4 },
+        // { name: t('team.member4.name'), position: t('team.member4.position'), photo: AssetsImage.teamM4 },
         { name: t('team.member5.name'), position: t('team.member5.position'), photo: AssetsImage.teamM3 },
-        { name: t('team.member2.name'), position: t('team.member2.position'), photo: AssetsImage.teamM2 },
+        // { name: t('team.member2.name'), position: t('team.member2.position'), photo: AssetsImage.teamM2 },
     ]
 
     let aosDelayInc = 100;
